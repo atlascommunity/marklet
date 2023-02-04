@@ -1,12 +1,15 @@
-Package io.github.atlascommunity.marklet
-========================================
-**Marklet** is a custom Java Doclet which aims to generate a
- Javadoc in a markdown format which is ready to use in GitHub.
+Package _io.github.atlascommunity.marklet_
+==========================================
+**Marklet** is a custom Java Doclet.
 ---
+The purpose of Marklet is to generate Javadoc
+ in markdown format, which is especially useful on Github.
+
 Classes
 =======
-| Name                  |
-| --------------------- |
-| [Options](Options.md) |
-| [Marklet](Marklet.md) |
+| Name                              |
+| --------------------------------- |
+| [Marklet](Marklet.md)             |
+| [MarkletOption](MarkletOption.md) |
+| [Options](Options.md)             |
 

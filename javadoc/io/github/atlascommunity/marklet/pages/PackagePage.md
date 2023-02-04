@@ -1,75 +1,159 @@
-Class PackagePage
-=================
-io.github.atlascommunity.marklet.pages.PackagePage
-Summary
+Class PackagePage extends io.github.atlascommunity.marklet.pages.DocumentPage
+=============================================================================
+Index of package elements
+
+io.github.atlascommunity.marklet.pages.PackagePage Summary
 -------
 #### Constructors
 | Visibility | Signature     |
 | ---------- | ------------- |
-| **public** | PackagePage() |
+| public     | PackagePage() |
 #### Fields
-| Type and modifiers                                         | Field name       |
-| ---------------------------------------------------------- | ---------------- |
-| **private final com.sun.javadoc.PackageDoc**               | packageDoc       |
-| **private final java.nio.file.Path**                       | packageDirectory |
-| **private final io.github.atlascommunity.marklet.Options** | options          |
+| Modifiers         | Field name                                                            | Type                                     |
+| ----------------- | --------------------------------------------------------------------- | ---------------------------------------- |
+| **private final** | [packageElement](#javaxlangmodelelementpackageelement-packageelement) | javax.lang.model.element.PackageElement  |
+| **private final** | [packageDirectory](#javaniofilepath-packagedirectory)                 | java.nio.file.Path                       |
+| **private final** | [options](#iogithubatlascommunitymarkletoptions-options)              | io.github.atlascommunity.marklet.Options |
+| **private final** | [comments](#comsunsourceutildoctrees-comments)                        | com.sun.source.util.DocTrees             |
+| **private final** | [root](#jdkjavadocdocletdocletenvironment-root)                       | jdk.javadoc.doclet.DocletEnvironment     |
+| **private final** | [reporter](#jdkjavadocdocletreporter-reporter)                        | jdk.javadoc.doclet.Reporter              |
 #### Methods
-| Type and modifiers | Method signature                                                                           | Return type |
-| ------------------ | ------------------------------------------------------------------------------------------ | ----------- |
-| **public**         | build()                                                                                    | void        |
-| **private**        | createPackageIndexes(StringBuilder packagePage)                                            | void        |
-| **private**        | generateTable(String tableLabel,com.sun.javadoc.ClassDoc[] docs,StringBuilder packagePage) | void        |
-| **private**        | writeFile(StringBuilder pageContent)                                                       | void        |
-
-Constructors
-============
-PackagePage ()
---------------
-
+| Modifiers   | Method signature                                                                                                                                                                                            | Return type                          |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| **public**  | [build()](#build)                                                                                                                                                                                           | String                               |
+| **private** | [getFullBody(PackageElement packageElement, DocTrees comments)](#getfullbodypackageelement-packageelement-doctrees-comments)                                                                                | List<com.sun.source.doctree.DocTree> |
+| **private** | [createPackageIndexes(StringBuilder packagePage)](#createpackageindexesstringbuilder-packagepage)                                                                                                           | void                                 |
+| **private** | [createPackageAnnotationIndex(StringBuilder packagePage)](#createpackageannotationindexstringbuilder-packagepage)                                                                                           | void                                 |
+| **private** | [createPackageEnumIndex(StringBuilder packagePage)](#createpackageenumindexstringbuilder-packagepage)                                                                                                       | void                                 |
+| **private** | [createPackageInterfaceIndex(StringBuilder packagePage)](#createpackageinterfaceindexstringbuilder-packagepage)                                                                                             | void                                 |
+| **private** | [createPackageClassIndex(StringBuilder packagePage)](#createpackageclassindexstringbuilder-packagepage)                                                                                                     | void                                 |
+| **private** | [generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)](#generatetablestring-tablelabel-javaxlangmodelelementtypeelement-docs-stringbuilder-packagepage) | void                                 |
+| **public**  | [write()](#write)                                                                                                                                                                                           | void                                 |
 
 Fields
 ======
-com.sun.javadoc.PackageDoc, packageDoc
---------------------------------------
+javax.lang.model.element.PackageElement packageElement
+------------------------------------------------------
 Package information
 
-java.nio.file.Path, packageDirectory
-------------------------------------
+
+java.nio.file.Path packageDirectory
+-----------------------------------
 Package path
 
-io.github.atlascommunity.marklet.Options, options
--------------------------------------------------
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
 Doclet options
+
+
+com.sun.source.util.DocTrees comments
+-------------------------------------
+This class provides methods to access TreePaths, DocCommentTrees and so on.
+
+
+jdk.javadoc.doclet.DocletEnvironment root
+-----------------------------------------
+*No description provided*
+
+
+jdk.javadoc.doclet.Reporter reporter
+------------------------------------
+*No description provided*
 
 
 Methods
 =======
-build ()
---------
+build()
+-------
 Build document and write it to the selected folder
-### Throws
-java.io.IOException: something went wrong during write operation
 
-createPackageIndexes (StringBuilder)
-------------------------------------
+### Throws
+
+IOException: something went wrong during write operation
+
+
+getFullBody(PackageElement packageElement, DocTrees comments)
+-------------------------------------------------------------
+*No method description provided*
+
+### Parameters
+
+| Name           | Description               |
+| -------------- | ------------------------- |
+| packageElement | *No description provided* |
+| comments       | *No description provided* |
+
+createPackageIndexes(StringBuilder packagePage)
+-----------------------------------------------
 Generate index tables for package annotations, enums, interfaces and classes
-### Parameters
-- packagePage: string representation of package page content
 
-generateTable (String, ClassDoc[], StringBuilder)
+### Parameters
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | string representation of package page content |
+
+
+createPackageAnnotationIndex(StringBuilder packagePage)
+-------------------------------------------------------
+Generate index table for package annotations
+
+### Parameters
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
+
+
+createPackageEnumIndex(StringBuilder packagePage)
 -------------------------------------------------
-Generate index table
-### Parameters
-- tableLabel: table name
-- docs: elements to work with
-- packagePage: string representation of package page content
+Generate index table for package classes
 
-writeFile (StringBuilder)
--------------------------
-Write file to the selected folder
 ### Parameters
-- pageContent: file content
-### Throws
-java.io.IOException: something went wrong during write operation
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
+
+
+createPackageInterfaceIndex(StringBuilder packagePage)
+------------------------------------------------------
+Generate index table for package interfaces
+
+### Parameters
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
+
+
+createPackageClassIndex(StringBuilder packagePage)
+--------------------------------------------------
+Generate index table for package classes
+
+### Parameters
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| packagePage | StringBuilder collecting package page content |
+
+
+generateTable(String tableLabel, javax.lang.model.element.TypeElement[] docs, StringBuilder packagePage)
+--------------------------------------------------------------------------------------------------------
+Generate index table
+
+### Parameters
+
+| Name        | Description                                   |
+| ----------- | --------------------------------------------- |
+| tableLabel  | table name                                    |
+| docs        | elements to work with                         |
+| packagePage | string representation of package page content |
+
+
+write()
+-------
+*No method description provided*
 
 

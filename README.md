@@ -1,48 +1,118 @@
 # Marklet
 
-This is custom fork of
-useful [Marklet doclet](https://github.com/Faylixe/marklet/tree/master/javadoc/fr/faylixe/marklet)
-which main purpose was to generate a Javadoc in a markdown format.
+Marklet is a Doclet that plugs into `javadoc`. The purpose of Marklet is to generate Javadoc in Markdown format instead of
+the usual HTML that `javadoc` creates. 
+This version requires Java 14 or higher to run, but can document all lower source code versions.
+
+Currently working on the migration from `com.sun.javadoc` to the newer `jdk.javadoc.doclet` 
+API because the older classes are no longer supported on Java 12 and up. Still work in progress.
 
 **Examples** :
 
-* [Marklet itself!](https://github.com/PandaTheGrim/marklet/tree/master/javadoc)
+* [Marklet documenting itself!](https://github.com/iSnow/marklet/tree/master/javadoc/README.md)
 
-In order to use it with Maven, adds the following configuration for the ``maven-javadoc-plugin``
+## How to use
+
+You can run Marklet on the command line to generate one-shot documentation or add it to your `pom.xml` 
+so Markdown docs are created on Maven build. You probably can use it from Gradle, but since I am a Maven guy, I 
+don't know the syntax.
+
+The most important caveat is that you **have to** specify the Java packages (option `-subpackage`) you want to document
+and their location in the file system (option `-sourcepath`) correctly, otherwise no output will be generated
+(specifying `-sourcepath` alone is not sufficient).
+
+
+### Command-line use
+First run `mvn package` to build the doclet.
+
+Linux/macOS:
+```shell
+javadoc -docletpath ./target/marklet-2.0.0.jar \
+  -doclet io.github.atlascommunity.marklet.Marklet \
+  -cp ./target/marklet-2.0.0.jar \
+  -sourcepath ./src/main/java \
+  -subpackages io.github.atlascommunity.marklet
+```
+
+Windows:
+```shell
+javadoc -docletpath .\target\marklet-2.0.0.jar  -doclet io.github.atlascommunity.marklet.Marklet -cp .\target\marklet-2.0.0.jar -sourcepath .\src\main\java -subpackages io.github.atlascommunity.marklet
+```
+
+On both platforms, be sure to set `subpackages` toyour project packages qualified name and 
+`sourcepath` pointing to your sources.
+
+### Maven use
+In order to use it with Maven, add the following configuration for the ``maven-javadoc-plugin``
 in your project ``POM`` :
 
 ```xml
 
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-javadoc-plugin</artifactId>
-    <version>${javadoc.plugin.version}</version>
-    <configuration>
-        <doclet>io.github.atlascommunity.marklet.Marklet</doclet>
-        <docletArtifact>
-            <groupId>io.github.atlascommunity</groupId>
-            <artifactId>marklet</artifactId>
-            <version>1.2.1</version>
-        </docletArtifact>
-        <reportOutputDirectory>./</reportOutputDirectory>
-        <destDir>./</destDir>
-        <additionalOptions>
-            <additionalOption>-d</additionalOption>
-            <additionalOption>doc</additionalOption>
-            <additionalOption>-e</additionalOption>
-            <additionalOption>md</additionalOption>
-        </additionalOptions>
-        <useStandardDocletOptions>false</useStandardDocletOptions>
-    </configuration>
-</plugin>
+<profiles>
+    <profile>
+        <id>generate-markdown</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                    <configuration>
+                        <doclet>io.github.atlascommunity.marklet.Marklet</doclet>
+                        <docletArtifact>
+                            <groupId>io.github.atlascommunity</groupId>
+                            <artifactId>marklet</artifactId>
+                            <version>2.0.0</version>
+                        </docletArtifact>
+                        <reportOutputDirectory>./</reportOutputDirectory>
+                        <destDir>./</destDir>
+                        <useStandardDocletOptions>false</useStandardDocletOptions>
+                        <additionalOptions>
+                            <additionalOption>-e markdown</additionalOption>
+                        </additionalOptions>
+                        <show>private</show>
+                        <subpackages>io.github.atlascommunity.marklet</subpackages>
+                        <sourcepath>src/main/java/</sourcepath>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
 ```
 
-This will generate the javadoc report into the project directory under project subfolder ``doc``.
+This profile is not active by default, so the Markdown documentation would not get re-created with each Maven run,
+but if you type `mvn clean package -P generate-markdown`, it gets run. If you want to have it permanently active,
+set `activeByDefault` to `true`: 
+
+```xml
+<activation>
+     <activeByDefault>true</activeByDefault>
+ </activation>
+ ```
+
+Running from Maven, you may omit the `sourcepath` option, but be sure to set `subpackages` to
+your project packages qualified name. You may usually omit `reportOutputDirectory`, but not `destDir`.
+
+If you set `show` to `public`, no internals (protected/private objects) will be documented, and 
+your api-docs will be the public API.
+
+`useStandardDocletOptions` interferes with the working of Marklet, it must be set to `false`.
+
+This will generate the javadoc report into the project directory under project subfolder `javadoc` and use the 
+file extension `.markdown` ( the `-e` in the `additionalOptions` overrides the default extension `.md`).
+
+The Apache Maven site 
+[has more information](https://maven.apache.org/plugins/maven-javadoc-plugin/examples/alternate-doclet.html) 
+on how to use alternate doclets like Marklet in addition to the default HTML-generating `javadoc-plugin`.
 
 ## Java 8 doclint issues.
 
 If you are using Java 8 you may have some issues with doclint validation especially when using
-markdown blockquotes syntax. To deal with it, just add the following directive to your ``pom.xml``
+Markdown blockquotes syntax. To deal with it, just add the following directive to your ``pom.xml``
 file to deactivate doclint :
 
 ```xml
@@ -54,25 +124,28 @@ file to deactivate doclint :
 
 ## Available doclet options
 
-| Option        | What it does                            | By default  |
-| ------------- |-----------------------------------------| ------------|
-| -d            | set output directory for documentation  | ./javadoc   |
-| -e            | set files extension                     | .md         |
+| Option | LongOpt  | What it does                             | By default |
+|--------|----------|------------------------------------------|------------|
+| -e     |          | set files extension                      | .md        |
+| -i     |          | location of the source directory         |            |
+| -d     | -destDir | location of the target output directory  | .javadoc/  |
 
 ## Developing Marklet
 
-Marklet requires Apache Maven. In order to build, run
+To hack on Marklet and improve it, look at `Marklet.java` and use the `main()` method to get it to run
+in any IDE. The provided options allow you to run Marklet on its own source tree.
+
+
+In order to generate Markdown documentation for Marklet itself via Maven, run
 
 ```
-$ mvn install
-
+$ mvn -P generate-markdown javadoc:javadoc
 ```
 
-In order to generate Markdown documentation for Marklet itself, run
+### Developer docs
 
-```
-$ mvn -P marklet-generation javadoc:javadoc
-```
+- [new jdk.javadoc.doclet API Docs](https://openjdk.org/groups/compiler/using-new-doclet.html)
+- [Javadoc for jdk.javadoc.doclet](https://docs.oracle.com/en/java/javase/17/docs/api/jdk.javadoc/jdk/javadoc/doclet/package-summary.html)
 
 ## License
 
@@ -80,11 +153,14 @@ Marklet is licensed under the Apache License, Version 2.0
 
 ## Current issues
 
-The current version is a still under development with the following feature missing :
+The current version is still under development with the following issues:
 
-* Interfaces, inner classes, enumerations, and annotations has not been tested already and subject
-  to bug.
+* Interfaces, inner classes, enumerations, and annotations might have bugs.
 
-* Migration from com.sun.javadoc to jdk.javadoc.doclet API
+* read https://stackoverflow.com/questions/5592703/documented-annotation-in-java
 
-* Version still needs testing
+* Many modern (post Java-8) features will not be documented yet.
+
+* Migration from com.sun.javadoc to jdk.javadoc.doclet API (WIP)
+
+* Basically no unit tests

@@ -1,102 +1,190 @@
 Class Labels
 ============
-io.github.atlascommunity.marklet.constants.Labels
-Summary
+Enumerations of text constant used during documentation generation.
+
+io.github.atlascommunity.marklet.constants.Labels Summary
 -------
 #### Constructors
 | Visibility | Signature |
 | ---------- | --------- |
-| **public** | Labels()  |
+| public     | Labels()  |
 #### Fields
-| Type and modifiers                       | Field name   |
-| ---------------------------------------- | ------------ |
-| **public static final java.lang.String** | PACKAGE      |
-| **public static final java.lang.String** | INTERFACE    |
-| **public static final java.lang.String** | CLASS        |
-| **public static final java.lang.String** | ANNOTATION   |
-| **public static final java.lang.String** | ENUMERATION  |
-| **public static final java.lang.String** | INTERFACES   |
-| **public static final java.lang.String** | CLASSES      |
-| **public static final java.lang.String** | ANNOTATIONS  |
-| **public static final java.lang.String** | ENUMERATIONS |
-| **public static final java.lang.String** | CONSTRUCTORS |
-| **public static final java.lang.String** | METHODS      |
-| **public static final java.lang.String** | FIELDS       |
-| **public static final java.lang.String** | THROWS       |
-| **public static final java.lang.String** | RETURNS      |
-| **public static final java.lang.String** | PARAMETERS   |
-| **public static final java.lang.String** | SUMMARY      |
-
-Constructors
-============
-Labels ()
----------
-
+| Modifiers               | Field name                                                   | Type   |
+| ----------------------- | ------------------------------------------------------------ | ------ |
+| **public static final** | [PACKAGE](#javalangstring-package)                           | String |
+| **public static final** | [INTERFACE](#javalangstring-interface)                       | String |
+| **public static final** | [RECORD](#javalangstring-record)                             | String |
+| **public static final** | [CLASS](#javalangstring-class)                               | String |
+| **public static final** | [ANNOTATION](#javalangstring-annotation)                     | String |
+| **public static final** | [ENUMERATION](#javalangstring-enumeration)                   | String |
+| **public static final** | [INTERFACES](#javalangstring-interfaces)                     | String |
+| **public static final** | [CLASSES](#javalangstring-classes)                           | String |
+| **public static final** | [ANNOTATIONS](#javalangstring-annotations)                   | String |
+| **public static final** | [ENUMERATIONS](#javalangstring-enumerations)                 | String |
+| **public static final** | [CONSTRUCTORS](#javalangstring-constructors)                 | String |
+| **public static final** | [METHODS](#javalangstring-methods)                           | String |
+| **public static final** | [FIELDS](#javalangstring-fields)                             | String |
+| **public static final** | [THROWS](#javalangstring-throws)                             | String |
+| **public static final** | [RETURNS](#javalangstring-returns)                           | String |
+| **public static final** | [SINCE](#javalangstring-since)                               | String |
+| **public static final** | [PARAMETERS](#javalangstring-parameters)                     | String |
+| **public static final** | [SUMMARY](#javalangstring-summary)                           | String |
+| **public static final** | [UNKNOWN](#javalangstring-unknown)                           | String |
+| **public static final** | [DEPRECATED](#javalangstring-deprecated)                     | String |
+| **public static final** | [OVERRIDES](#javalangstring-overrides)                       | String |
+| **public static final** | [OVERRIDE_MARK](#javalangstring-override_mark)               | String |
+| **public static final** | [TABLE_PACKAGE_HEADER](#javalangstring-table_package_header) | String |
+| **public static final** | [TABLE_MODULE_HEADER](#javalangstring-table_module_header)   | String |
+| **public static final** | [MODIFIERS_COLUMN](#javalangstring-modifiers_column)         | String |
+| **public static final** | [TYPE_COLUMN](#javalangstring-type_column)                   | String |
+| **public static final** | [ENUM_CONSTANTS](#javalangstring-enum_constants)             | String |
+| **public static final** | [ENUM_CONSTANT](#javalangstring-enum_constant)               | String |
+| **public static final** | [DESCRIPTION](#javalangstring-description)                   | String |
 
 Fields
 ======
-java.lang.String, PACKAGE
--------------------------
+String PACKAGE
+------------------------
 Label for package. *
 
-java.lang.String, INTERFACE
----------------------------
+
+String INTERFACE
+--------------------------
 Label for interface. *
 
-java.lang.String, CLASS
+
+String RECORD
 -----------------------
+Label for Record. *
+
+
+String CLASS
+----------------------
 Label for class. *
 
-java.lang.String, ANNOTATION
-----------------------------
+
+String ANNOTATION
+---------------------------
 Label for annotation. *
 
-java.lang.String, ENUMERATION
------------------------------
+
+String ENUMERATION
+----------------------------
 Label for enumeration. *
 
-java.lang.String, INTERFACES
-----------------------------
+
+String INTERFACES
+---------------------------
 Label for interfaces. *
 
-java.lang.String, CLASSES
--------------------------
+
+String CLASSES
+------------------------
 Label for classes. *
 
-java.lang.String, ANNOTATIONS
------------------------------
+
+String ANNOTATIONS
+----------------------------
 Label for annotations. *
 
-java.lang.String, ENUMERATIONS
-------------------------------
+
+String ENUMERATIONS
+-----------------------------
 Label for enumerations. *
 
-java.lang.String, CONSTRUCTORS
-------------------------------
+
+String CONSTRUCTORS
+-----------------------------
 Label for constructor. *
 
-java.lang.String, METHODS
--------------------------
+
+String METHODS
+------------------------
 Label for methods. *
 
-java.lang.String, FIELDS
-------------------------
+
+String FIELDS
+-----------------------
 Label for fields. *
 
-java.lang.String, THROWS
-------------------------
+
+String THROWS
+-----------------------
 Label for throws. *
 
-java.lang.String, RETURNS
--------------------------
+
+String RETURNS
+------------------------
 Label for returns. *
 
-java.lang.String, PARAMETERS
-----------------------------
+
+String SINCE
+----------------------
+Label for since. *
+
+
+String PARAMETERS
+---------------------------
 Label for parameters. *
 
-java.lang.String, SUMMARY
--------------------------
+
+String SUMMARY
+------------------------
 Label for summary. *
+
+
+String UNKNOWN
+------------------------
+Label for unknown. *
+
+
+String DEPRECATED
+---------------------------
+*No description provided*
+
+
+String OVERRIDES
+--------------------------
+Label for Override. *
+
+
+String OVERRIDE_MARK
+------------------------------
+*No description provided*
+
+
+String TABLE_PACKAGE_HEADER
+-------------------------------------
+Table header
+
+
+String TABLE_MODULE_HEADER
+------------------------------------
+Table header
+
+
+String MODIFIERS_COLUMN
+---------------------------------
+Table column name
+
+
+String TYPE_COLUMN
+----------------------------
+Table column name
+
+
+String ENUM_CONSTANTS
+-------------------------------
+*No description provided*
+
+
+String ENUM_CONSTANT
+------------------------------
+*No description provided*
+
+
+String DESCRIPTION
+----------------------------
+*No description provided*
 
 

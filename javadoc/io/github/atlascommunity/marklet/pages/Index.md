@@ -1,27 +1,23 @@
-Package io.github.atlascommunity.marklet.pages
-==============================================
+Package _io.github.atlascommunity.marklet.pages_
+================================================
+Enumerations
+============
+| Name                          |
+| ----------------------------- |
+| [Enumeration](Enumeration.md) |
+
 Interfaces
 ==========
-| Name                                    |
-| --------------------------------------- |
-| [DocumentPage](DocumentPage.md)         |
-| [ClassPageElement](ClassPageElement.md) |
+| Name                                              |
+| ------------------------------------------------- |
+| [DocumentPageInterface](DocumentPageInterface.md) |
 
 Classes
 =======
-| Name                                                |
-| --------------------------------------------------- |
-| [ReadmePage](ReadmePage.md)                         |
-| [PackagePage](PackagePage.md)                       |
-| [MethodSignature](MethodSignature.md)               |
-| [MarkdownTag](MarkdownTag.md)                       |
-| [DocumentPage](DocumentPage.md)                     |
-| [ClassTitle](ClassTitle.md)                         |
-| [ClassSummary](ClassSummary.md)                     |
-| [ClassQualifiedPathInfo](ClassQualifiedPathInfo.md) |
-| [ClassPageElement](ClassPageElement.md)             |
-| [ClassPage](ClassPage.md)                           |
-| [ClassMethodsInfo](ClassMethodsInfo.md)             |
-| [ClassFieldsInfo](ClassFieldsInfo.md)               |
-| [ClassConstructorsInfo](ClassConstructorsInfo.md)   |
+| Name                            |
+| ------------------------------- |
+| [ClassPage](ClassPage.md)       |
+| [DocumentPage](DocumentPage.md) |
+| [PackagePage](PackagePage.md)   |
+| [ReadmePage](ReadmePage.md)     |
 

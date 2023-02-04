@@ -1,27 +1,22 @@
 Class Links
 ===========
-io.github.atlascommunity.marklet.constants.Links
-Summary
+Enumerations of constants used for badge operations
+
+io.github.atlascommunity.marklet.constants.Links Summary
 -------
 #### Constructors
 | Visibility | Signature |
 | ---------- | --------- |
-| **public** | Links()   |
+| public     | Links()   |
 #### Fields
-| Type and modifiers                       | Field name |
-| ---------------------------------------- | ---------- |
-| **public static final java.lang.String** | BADGE      |
-
-Constructors
-============
-Links ()
---------
-
+| Modifiers               | Field name                     | Type   |
+| ----------------------- | ------------------------------ | ------ |
+| **public static final** | [BADGE](#javalangstring-badge) | String |
 
 Fields
 ======
-java.lang.String, BADGE
------------------------
+String BADGE
+----------------------
 Marklet link using dynamic badge. *
 
 

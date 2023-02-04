@@ -1,52 +1,75 @@
-Class ClassPage
-===============
-io.github.atlascommunity.marklet.pages.ClassPage
-Summary
+Class ClassPage extends io.github.atlascommunity.marklet.pages.DocumentPage
+===========================================================================
+Markdown text file with class information
+
+io.github.atlascommunity.marklet.pages.ClassPage Summary
 -------
 #### Constructors
 | Visibility | Signature   |
 | ---------- | ----------- |
-| **public** | ClassPage() |
+| public     | ClassPage() |
 #### Fields
-| Type and modifiers                                         | Field name |
-| ---------------------------------------------------------- | ---------- |
-| **private final com.sun.javadoc.ClassDoc**                 | classDoc   |
-| **private final io.github.atlascommunity.marklet.Options** | options    |
+| Modifiers         | Field name                                                     | Type                                     |
+| ----------------- | -------------------------------------------------------------- | ---------------------------------------- |
+| **private final** | [classElement](#javaxlangmodelelementtypeelement-classelement) | javax.lang.model.element.TypeElement     |
+| **private final** | [treeUtils](#comsunsourceutildoctrees-treeutils)               | com.sun.source.util.DocTrees             |
+| **private final** | [comments](#comsunsourcedoctreedoccommenttree-comments)        | com.sun.source.doctree.DocCommentTree    |
+| **private final** | [environment](#jdkjavadocdocletdocletenvironment-environment)  | jdk.javadoc.doclet.DocletEnvironment     |
+| **private final** | [options](#iogithubatlascommunitymarkletoptions-options)       | io.github.atlascommunity.marklet.Options |
+| **private final** | [packageName](#javalangstring-packagename)                     | String                                   |
+| **private final** | [reporter](#jdkjavadocdocletreporter-reporter)                 | jdk.javadoc.doclet.Reporter              |
 #### Methods
-| Type and modifiers | Method signature                   | Return type |
-| ------------------ | ---------------------------------- | ----------- |
-| **public**         | build()                            | void        |
-| **private**        | writeFile(StringBuilder classPage) | void        |
-
-Constructors
-============
-ClassPage ()
-------------
-
+| Modifiers  | Method signature  | Return type |
+| ---------- | ----------------- | ----------- |
+| **public** | [build()](#build) | String      |
+| **public** | [write()](#write) | void        |
 
 Fields
 ======
-com.sun.javadoc.ClassDoc, classDoc
-----------------------------------
+javax.lang.model.element.TypeElement classElement
+-------------------------------------------------
 Class information
 
-io.github.atlascommunity.marklet.Options, options
--------------------------------------------------
+
+com.sun.source.util.DocTrees treeUtils
+--------------------------------------
+*No description provided*
+
+
+com.sun.source.doctree.DocCommentTree comments
+----------------------------------------------
+*No description provided*
+
+
+jdk.javadoc.doclet.DocletEnvironment environment
+------------------------------------------------
+*No description provided*
+
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
 Doclet options
+
+
+String packageName
+----------------------------
+*No description provided*
+
+
+jdk.javadoc.doclet.Reporter reporter
+------------------------------------
+*No description provided*
 
 
 Methods
 =======
-build ()
---------
+build()
+-------
 Creates markdown text file
 
-writeFile (StringBuilder)
--------------------------
-Writes file to disk
-### Parameters
-- classPage: markdown string with class information
-### Throws
-java.io.IOException: If any error occurs during write process.
+
+write()
+-------
+*No method description provided*
 
 

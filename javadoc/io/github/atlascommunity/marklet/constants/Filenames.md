@@ -1,32 +1,28 @@
 Class Filenames
 ===============
-io.github.atlascommunity.marklet.constants.Filenames
-Summary
+Enumerations of text constant used during files operations.
+
+io.github.atlascommunity.marklet.constants.Filenames Summary
 -------
 #### Constructors
 | Visibility | Signature   |
 | ---------- | ----------- |
-| **public** | Filenames() |
+| public     | Filenames() |
 #### Fields
-| Type and modifiers                       | Field name         |
-| ---------------------------------------- | ------------------ |
-| **public static final java.lang.String** | PACKAGE_INDEX_FILE |
-| **public static final java.lang.String** | README_FILE        |
-
-Constructors
-============
-Filenames ()
-------------
-
+| Modifiers               | Field name                                               | Type   |
+| ----------------------- | -------------------------------------------------------- | ------ |
+| **public static final** | [PACKAGE_INDEX_FILE](#javalangstring-package_index_file) | String |
+| **public static final** | [README_FILE](#javalangstring-readme_file)               | String |
 
 Fields
 ======
-java.lang.String, PACKAGE_INDEX_FILE
-------------------------------------
+String PACKAGE_INDEX_FILE
+-----------------------------------
 Package index filename.
 
-java.lang.String, README_FILE
------------------------------
+
+String README_FILE
+----------------------------
 Project readme file with all indexes.
 
 

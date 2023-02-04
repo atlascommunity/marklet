@@ -12,6 +12,9 @@ public final class Labels {
   /** Label for interface. * */
   public static final String INTERFACE = "Interface";
 
+  /** Label for Record. * */
+  public static final String RECORD = "Record";
+
   /** Label for class. * */
   public static final String CLASS = "Class";
 
@@ -48,9 +51,40 @@ public final class Labels {
   /** Label for returns. * */
   public static final String RETURNS = "Returns";
 
+  /** Label for since. * */
+  public static final String SINCE = "Since";
   /** Label for parameters. * */
   public static final String PARAMETERS = "Parameters";
 
   /** Label for summary. * */
   public static final String SUMMARY = "Summary";
+
+  /** Label for unknown. * */
+  public static final String UNKNOWN = "???";
+
+  public static final String DEPRECATED = "Deprecated";
+
+  /** Label for Override. * */
+  public static final String OVERRIDES = "Overrides/Implements:";
+
+  public static final String OVERRIDE_MARK = "(Override)";
+
+  /** Table header */
+  public static final String TABLE_PACKAGE_HEADER = "Package";
+
+  /** Table header */
+  public static final String TABLE_MODULE_HEADER = "Module";
+
+  /** Table column name */
+  public static final String MODIFIERS_COLUMN = "Modifiers";
+
+  /** Table column name */
+  public static final String TYPE_COLUMN = "Type";
+
+  public static final String ENUM_CONSTANTS = "Enum Constants";
+
+  public static final String ENUM_CONSTANT = "Enum Constant";
+
+  public static final String DESCRIPTION = "Description";
+
 }

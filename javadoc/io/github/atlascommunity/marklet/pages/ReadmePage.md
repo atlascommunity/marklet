@@ -1,50 +1,84 @@
-Class ReadmePage
-================
-io.github.atlascommunity.marklet.pages.ReadmePage
-Summary
+Class ReadmePage extends io.github.atlascommunity.marklet.pages.DocumentPage
+============================================================================
+Index of project packages
+
+io.github.atlascommunity.marklet.pages.ReadmePage Summary
 -------
 #### Constructors
 | Visibility | Signature    |
 | ---------- | ------------ |
-| **public** | ReadmePage() |
+| public     | ReadmePage() |
 #### Fields
-| Type and modifiers                                           | Field name           |
-| ------------------------------------------------------------ | -------------------- |
-| **private final java.util.List<com.sun.javadoc.PackageDoc>** | packages             |
-| **private final io.github.atlascommunity.marklet.Options**   | options              |
-| **private static final java.lang.String**                    | TABLE_PACKAGE_HEADER |
+| Modifiers         | Field name                                                            | Type                                          |
+| ----------------- | --------------------------------------------------------------------- | --------------------------------------------- |
+| **private final** | [modules](#javautillistjavaxlangmodelelementmoduleelement-modules)    | List<javax.lang.model.element.ModuleElement>  |
+| **private final** | [packages](#javautillistjavaxlangmodelelementpackageelement-packages) | List<javax.lang.model.element.PackageElement> |
+| **private final** | [options](#iogithubatlascommunitymarkletoptions-options)              | io.github.atlascommunity.marklet.Options      |
+| **private final** | [reporter](#jdkjavadocdocletreporter-reporter)                        | jdk.javadoc.doclet.Reporter                   |
 #### Methods
-| Type and modifiers | Method signature | Return type |
-| ------------------ | ---------------- | ----------- |
-| **public**         | build()          | void        |
-
-Constructors
-============
-ReadmePage ()
--------------
-
+| Modifiers          | Method signature                                                                                                                                                                     | Return type |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| **public**         | [build()](#build)                                                                                                                                                                    | String      |
+| **private static** | [generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)](#generatemoduleinfolistjavaxlangmodelelementmoduleelement-modules)                                        | String      |
+| **private static** | [generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)](#generatepackageinfolistjavaxlangmodelelementpackageelement-packages-options-options) | String      |
+| **public**         | [write()](#write)                                                                                                                                                                    | void        |
 
 Fields
 ======
-java.util.List<com.sun.javadoc.PackageDoc>, packages
-----------------------------------------------------
+List<javax.lang.model.element.ModuleElement> modules
+--------------------------------------------------------------
+List of modules in the project
+
+
+List<javax.lang.model.element.PackageElement> packages
+----------------------------------------------------------------
 List of project packages
 
-io.github.atlascommunity.marklet.Options, options
--------------------------------------------------
+
+io.github.atlascommunity.marklet.Options options
+------------------------------------------------
 Doclet options
 
-java.lang.String, TABLE_PACKAGE_HEADER
---------------------------------------
-Table header
+
+jdk.javadoc.doclet.Reporter reporter
+------------------------------------
+*No description provided*
 
 
 Methods
 =======
-build ()
---------
+build()
+-------
 Build document and write it to the selected folder
+
 ### Throws
-java.io.IOException: something went wrong during write operation
+
+IOException: something went wrong during write operation
+
+
+generateModuleInfo(List<javax.lang.model.element.ModuleElement> modules)
+------------------------------------------------------------------------
+*No method description provided*
+
+### Parameters
+
+| Name    | Description               |
+| ------- | ------------------------- |
+| modules | *No description provided* |
+
+generatePackageInfo(List<javax.lang.model.element.PackageElement> packages, Options options)
+--------------------------------------------------------------------------------------------
+*No method description provided*
+
+### Parameters
+
+| Name     | Description               |
+| -------- | ------------------------- |
+| packages | *No description provided* |
+| options  | *No description provided* |
+
+write()
+-------
+*No method description provided*
 
 
